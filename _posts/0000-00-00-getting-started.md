@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Getting Started"
-category: doc
+category: use
 order: 1
 date: 2016-07-28 11:54:00
 ---
