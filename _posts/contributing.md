@@ -1,6 +1,6 @@
 ---
 layout: page
-title:  Contributing
+title:  Contributingg
 date:   2013-06-03 21:12:57
 category: dev
 order: 0
