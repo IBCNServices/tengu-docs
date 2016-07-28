@@ -1,8 +1,7 @@
 ---
 layout: page
-title: "Usage"
+title: "Getting Started"
 category: doc
-date: 2013-06-06 08:55:36
 order: 1
 ---
 
