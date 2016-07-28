@@ -3,6 +3,7 @@ layout: page
 title: "Getting Started"
 category: doc
 order: 1
+date: 2016-07-28 11:54:00
 ---
 
 The template follows a very simple convention of defining categories that correspond to sections in the navigation. Here are the default ones (they are listed in the `_config.yml`):
