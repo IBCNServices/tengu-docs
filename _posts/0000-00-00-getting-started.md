@@ -5,90 +5,48 @@ category: doc
 order: 1
 date: 2016-07-28 11:54:00
 ---
+## Create Virtual Wall account and join Tengu project
 
-The template follows a very simple convention of defining categories that correspond to sections in the navigation. Here are the default ones (they are listed in the `_config.yml`):
+Tengu can setup experiments (models) on the iMinds Virtual Wall. To use this functionality, you need to [create a virtual wall account](https://authority.ilabt.iminds.be/) and request access to the `tengu` project.  
 
-- `doc` - Documentation
-- `ref` - Reference
-- `tut` - Tutorial
-- `dev` - Developers
-- `post` - Posts
+## Tengu web-ui
 
-Since Jekyll is more geared towards blog posts, specifiying a date and setting up the front-matter can get tedious. Supplied in the `bin` directory is a simple Ruby scripy for creating a new _page_:
+[Tengu's web-ui](http://tengu.intec.ugent.be/web-ui/) allows you to deploy models on the iMinds virtual wall.
 
-```bash
-ruby bin/jekyll-page title category [filename] [--edit]
-```
+1. Open the UI in your browser and click both "connect" buttons.
+2. Click **"select your member authority"** in the "GENI Authorization tool" popup and choose **wall2.ilabt.iminds.be**.
+3. Click "download certificate" and login using your virtual wall account.
+4. Confirm the certificate request in the popup.
+5. Enter the passphrase of your virtual wall private key (should be the same as your virtual wall account password).
 
-where `title` is the title of page, `category` is one of the categories defined in the `_config.yml`. By default the `filename` will be derived from the `title`, but you can specify an explicit filename (without the date) by passing the third agument. Finally the `--edit` (or just `-e`) will launch the editor defined by the `$EDITOR` environment variable.
+After logging in, you can use the web-ui to create models.
 
-#### Example
+## The hauchiwa
 
-```bash
-./bin/jekyll-page "My New Page" ref
-```
+Each model is managed by a Hauchiwa. You can manage the model manually by logging into the Hauchiwa using ssh (username: `ubuntu`).
 
-Will produce a file `_posts/2013-06-05-my-new-page.md` with the [front-matter](http://jekyllrb.com/docs/frontmatter/) already defined:
+From the Hauchiwa, you can see the real-time status of the model by running the following command.
 
-```html
----
-layout: page
-title: "My New Page"
-category: ref
-date: 2013-06-05 12:00:00
----
-```
+    watch juju status --format tabular
 
-### Navigation Order
+*exit using <kbd>ctrl</kbd>-<kbd>c</kbd>*
 
-Simply add an `order` attribute to the front-matter of the page and the navigation links will be sorted accordingly (within it's section).
+### Get console access to the services
 
-```html
----
-layout: page
-title: "My New Page"
-category: ref
-date: 2013-06-05 12:00:00
-order: 1
----
-```
+Ssh to a service by running the following command **from your hauchiwa**.
 
-_Note: currently there is no way to arbitrarily order pages in Jekyll without the use of plugins. However, since deploying Jekyll sites to GitHub Pages is a common practice, we cannot rely on third-party plugins [since they are disabled](https://help.github.com/articles/pages-don-t-build-unable-to-run-jekyll#unsafe-plugins). This solution relies on JavaScript to sort the navigation after it has been rendered, so if JavaScript is disabled on the browser, the client is out of luck._
+    # Run this from your hauchiwa
+    juju ssh <service-name>/<unit-number>
 
-### Symlinks
+Similarly, you can copy files using `juju scp`.
 
-For convenience, a new directory will be created called `_pages` which contains symlinks to the posts without the data prefix, e.g. `2013-04-13-foo.md` &rarr; `foo.md`. This makes it a tad easier when opening files to edit.
+### Get web access to the services
 
-### Disqus
+All webservices connect to an internal network not accessible from the internet. You can connect to these services using the `openvpn` service. To connect, first copy the vpn to your hauchiwa.
 
-You can enable disqus comments on any page.  Configure your disqus shortname in the main ```_config.yaml```, you get the shortname during the signup process at Disqus:
+    # Run this from your hauchiwa
+    juju scp openvpn/0:~/client1.tgz .
 
-```html
-disqus_shortname: your_disqus
-```
+Then copy the config to your laptop *(for example by using `scp` from your laptop).*
 
-You can now enable it on a per-page basis in the YAML pre-amble of the page:
-
-```html
----
-layout: page
-title: "My New Page"
-category: ref
-date: 2013-06-05 12:00:00
-disqus: 1
----
-```
-
-### Google Analytics
-
-You can use Google Analytics to track visits to your site, once you configured your site at Google you'll get a site ID that looks something like ```UA-99999999-9```, to activate it on all your pages configure the ```_config.yaml```:
-
-```html
-google_analytics_id: 'UA-99999999-9'
-```
-
-If you do not wish this feature enabled you must set it to an empty string:
-
-```html
-google_analytics_id: ''
-```
+Install the [openvpn client](https://openvpn.net/index.php/open-source/downloads.html) and setup the vpn using the client config file. When connected to the VPN, you can surf to the services using their private ip address and port number (192.168.14.xxx:bbbb).
