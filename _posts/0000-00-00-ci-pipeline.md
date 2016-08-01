@@ -12,7 +12,7 @@ Latest results from the following bundles:
 
 - **[Microbatch (HDFS + Spark)](http://193.190.127.184:9080/microbatch/latest.html)**
 - **[Streaming (Storm + Cassandra)](http://193.190.127.184:9080/streaming/latest.html)**
-- **[Sojobo](http://193.190.127.184:9080/sojobo/latest.html)**
+- **[Sojobo](http://193.190.127.184:9080/sojobo/latest-sojobo.html)**
 
 Latest releases of charms and bundles are in [the Charm Store](https://jujucharms.com/u/tengu-bot/). More test results, like the tests for the hauchiwa, can be found [here](http://193.190.127.184:9080/). You can also check the status of the [Tengu CI Jenkins Job](http://193.190.127.184:8088/job/Tengu%20CI/)
 
