@@ -10,8 +10,8 @@ The [Tengu Charms repository](https://github.com/IBCNServices/tengu-charms) is c
 
 Latest results from the following bundles:
 
-- **[Spark](http://193.190.127.184:9080/spark/latest.html)**
-- **[Storm](http://193.190.127.184:9080/storm/latest.html)**
+- **[Microbatch (HDFS + Spark)](http://193.190.127.184:9080/microbatch/latest.html)**
+- **[Streaming (Storm + Cassandra)](http://193.190.127.184:9080/streaming/latest.html)**
 - **[Sojobo](http://193.190.127.184:9080/sojobo/latest.html)**
 
 Latest releases of charms and bundles are in [the Charm Store](https://jujucharms.com/u/tengu-bot/).
