@@ -6,7 +6,7 @@ date: 2016-07-28 11:54:00
 ---
 # Tengu CI pipeline
 
-The [Tengu Charms repository](https://github.com/IBCNServices/tengu-charms) is connected to a CI pipeline that ends with publishing the Charms to the Juju Charms store.
+The [Tengu Charms repository](https://github.com/IBCNServices/tengu-charms) is connected to a CI pipeline that ends with publishing the Charms to [the Juju Charms store](https://jujucharms.com/u/tengu-bot/).
 
 Latest results from the following bundles:
 
@@ -14,7 +14,7 @@ Latest results from the following bundles:
 - **[Streaming (Storm + Cassandra)](http://193.190.127.184:9080/streaming/latest.html)**
 - **[Sojobo](http://193.190.127.184:9080/sojobo/latest.html)**
 
-Latest releases of charms and bundles are in [the Charm Store](https://jujucharms.com/u/tengu-bot/).
+Latest releases of charms and bundles are in [the Charm Store](https://jujucharms.com/u/tengu-bot/). More test results, like the tests for the hauchiwa, can be found [here](http://193.190.127.184:9080/).
 
 ## High-level steps
 
