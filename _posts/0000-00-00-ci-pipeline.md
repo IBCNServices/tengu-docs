@@ -27,6 +27,6 @@ This pipeline starts after a commit is pushed to the `tengu-charms` repository.
 5. Publish test results on the [the Tengu CI website](http://193.190.127.184:9080/). The latest test results are available at `/<bundle-name>/latest.html`.
 6. If tests succeed, Publish the Charms and bundles to the [`tengu-bot` personal namespace](https://jujucharms.com/u/tengu-bot/) in the Charm store.
 
-# Under the hood
+## Under the hood
 
 The CI pipeline is started by the [Tengu Jenkins](http://193.190.127.184:8088/). Jenkins calls the [`ci.sh` script](https://github.com/IBCNServices/tengu-charms/blob/master/ci.sh). The actual heavy lifting is done by the [`cihelpers.py` script](https://github.com/IBCNServices/tengu-charms/blob/master/cihelpers.py).
