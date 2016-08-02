@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "CI Pipeline"
+title: "Developing"
 category: dev
 date: 2016-07-28 11:54:00
 ---
