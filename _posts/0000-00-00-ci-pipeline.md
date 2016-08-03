@@ -14,7 +14,7 @@ Latest results from the following bundles:
 - **[Streaming (Storm + Cassandra)](http://193.190.127.184:9080/streaming/latest.html)**
 - **[Sojobo](http://193.190.127.184:9080/sojobo/latest-sojobo.html)**
 
-Latest releases of charms and bundles are in [the Charm Store](https://jujucharms.com/u/tengu-bot/). More test results, like the tests for the hauchiwa, can be found [here](http://193.190.127.184:9080/). You can also check the status of the [Tengu CI Jenkins Job](http://193.190.127.184:8088/job/Tengu%20CI/)
+Latest releases of charms and bundles are in [the Charm Store](https://jujucharms.com/u/tengu-bot/). More test results, like the tests for the hauchiwa, can be found [here](http://193.190.127.184:9080/). You can also check the status of the [Tengu CI Jenkins Job](http://193.190.127.184:8088/job/Tengu%20CI/). Note that **the ci pipeline does not build charms**. When you make a change to a layered charm, it is up to you to build the charm before pushing the changes.
 
 ## High-level steps
 
