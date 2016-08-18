@@ -38,3 +38,22 @@ Copy the entire bundle folder to your Hauchiwa and run `tengu create`, supplying
         11-integration                                                         PASS
 
     PASS: 6 Total: 6 (103.728235 sec)
+
+# Git quickstart
+
+    # Configure git
+    git config --global user.name "Uw Naam"
+    $ git config --global user.email uw@email.com
+
+    # Show which files have changed and what is staged/untracked
+    git status
+
+    # Stage changes so they will be included in the next commit
+    git add charms/trusty/...
+    # Note: After removing a directory, you also have to add the changes with `git add dir/that/doesn't/exist/anymore`
+
+    # Create the commit
+    git commit -m "ik heb een nieuwe charm gemaakt"
+
+    # Push the commit to Github
+    git push upstream master
