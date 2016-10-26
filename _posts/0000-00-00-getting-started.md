@@ -11,7 +11,7 @@ Tengu can setup experiments (models) on the iMinds Virtual Wall. To use this fun
 
 ## Tengu web-ui
 
-[Tengu's web-ui](http://tengu.intec.ugent.be/web-ui/) allows you to deploy models on the iMinds virtual wall.
+[Tengu's web-ui](http://tengu.intec.ugent.be/dev-ui/) allows you to deploy models on the iMinds virtual wall.
 
 1. Open the UI in your browser and click both "connect" buttons.
 2. Click **"select your member authority"** in the "GENI Authorization tool" popup and choose **wall2.ilabt.iminds.be**.
