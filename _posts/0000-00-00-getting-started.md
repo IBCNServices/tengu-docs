@@ -53,8 +53,6 @@ Install the [openvpn client](https://openvpn.net/index.php/open-source/downloads
 
 ### Give a service a public IP
 
-# Connect to services in the model
-
 Tengu allows you to easily forward public ports to private services using the dhcp-server. For services managed by Tengu that state their open ports, you can easily setup a port forward by running.
 
     tengu expose-service <servicename>
