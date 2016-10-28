@@ -65,7 +65,7 @@ For services not managed by Tengu or services that don't specify their open port
 nano pf.yaml
 ```
 
-Put the following configuration in the file. You can see the ip in `juju status --format tabular`. *Please note that this will overwrite the port-forward config of the dhcp server. If the dhcp-server already forwards ports and you want to keep those forwards, you need to include them in the config. You can see the current port-forward config of the dhcp-server by running  `juju get dhcp-server`.*
+Put the following configuration in the file. You can see the ip in `juju status --format tabular`. Note that the dhcp-server has some reserved ports that cannot be used for forwarding such as port `8080`. *Please note that this will overwrite the port-forward config of the dhcp server. If the dhcp-server already forwards ports and you want to keep those forwards, you need to include them in the config. You can see the current port-forward config of the dhcp-server by running  `juju get dhcp-server`.*
 
 ```yaml
 dhcp-server:
