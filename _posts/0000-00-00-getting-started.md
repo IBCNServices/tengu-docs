@@ -50,3 +50,45 @@ All webservices connect to an internal network not accessible from the internet.
 Then copy the config to your laptop *(for example by using `scp` from your laptop).*
 
 Install the [openvpn client](https://openvpn.net/index.php/open-source/downloads.html) and setup the vpn using the client config file. When connected to the VPN, you can surf to the services using their private ip address and port number (192.168.14.xxx:bbbb).
+
+### Give a service a public IP
+
+# Connect to services in the model
+
+Tengu allows you to easily forward public ports to private services using the dhcp-server. For services managed by Tengu that state their open ports, you can easily setup a port forward by running.
+
+    tengu expose-service <servicename>
+
+
+For services not managed by Tengu or services that don't specify their open ports, you'll have to tell the dhcp-server to forward a port manually.
+
+```bash
+# Create a file to configure the port forwards
+nano pf.yaml
+```
+
+Put the following configuration in the file. You can see the ip in `juju status --format tabular`. *Please note that this will overwrite the port-forward config of the dhcp server. If the dhcp-server already forwards ports and you want to keep those forwards, you need to include them in the config. You can see the current port-forward config of the dhcp-server by running  `juju get dhcp-server`.*
+
+```yaml
+dhcp-server:
+  port-forwards: |
+    [{
+      "public_port": "<port>",
+      "private_port": "<port>",
+      "private_ip": "<ip>",
+      "protocol": "<tcp|udp>"
+    }]
+```
+
+Save the file (<kbd>ctrl</kbd>-<kbd>o</kbd> <kbd>enter</kbd> <kbd>ctrl</kbd>-<kbd>x</kbd>) and tell the dhcp server to update the port-forwards accordingly.
+
+```bash
+juju set dhcp-server --config pf.yaml
+```
+
+You can verify the change using `juju get dhcp-server`. Now find the public ip of your model by looking at the `juju status --format tabular` output. The ip address between brackets is the public ip of your model.
+
+```
+ID                 WORKLOAD-STATE AGENT-STATE MACHINE PORTS    PUBLIC-ADDRESS                 MESSAGE                                    
+dhcp-server/0      active         idle        0                n063-14b.wall2.ilabt.iminds.be Ready (193.190.127.240)                        
+```
