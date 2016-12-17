@@ -5,8 +5,8 @@ title: "Tengu Docs"
 
 This is the documentation website for the Tengu project.
 
- - (How to I access the applications in my model?)[use/expose-applications.html]
- - (How do I use the Tengubox?)[use/tengubox.html]
+ - [How to I access the applications in my model?](use/expose-applications.html)
+ - [How do I use the Tengubox?](use/tengubox.html)
 
 
 Some quick links:
