@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "External Acces to your Applications"
+title: "Acces your Applications"
 category: use
 order: 1
 date: 2016-07-28 11:54:00
