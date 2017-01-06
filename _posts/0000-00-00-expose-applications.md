@@ -8,7 +8,7 @@ date: 2016-07-28 11:54:00
 
 Do you want to have access to the applications running in your model? There are a couple of options.
 
-## i. Use the VPN
+## I. Use the VPN
 
 The tengumaas VPN gives you access to the internal network (`172.28.0.0/14` range). The VPN is already configured on your [Tengubox](tengubox). If you want to connect other servers or computers to the VPN, ask the Tengu team for the config file. More information on how to configure clients to connect to the VPN can be found in the [OpenVPN Charm README](https://github.com/IBCNServices/layer-openvpn#connecting-to-the-vpn).
 
@@ -22,7 +22,7 @@ Once connected to the VPN, you can SSH to all servers. You can use [juju ssh](ht
 
 When connected to the VPN, you can just surf to your applications. The VPN also enables the DNS server so hostnames like `bland-lamp.maas` and `juju-35dfg5e-23-lxd-1`.
 
-## ii. Use a machine with a public IP
+## II. Use a machine with a public IP
 
 If you have a machine with a publicly accessible IP in your experiment (193.190 range), you can either deploy your applications directly to that machine, or (preferred) deploy your applications into containers and set up a reverse proxy on the machine itself. Use an HTTP reverseproxy for HTTP webservices or use a TCP/UDP forwarder to forward all traffic.
 
