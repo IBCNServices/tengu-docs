@@ -14,21 +14,24 @@ The tengumaas VPN gives you access to the internal network (`172.28.0.0/14` rang
 
 *Note: If you want to give external (non-IDLab) parties access to the VPN, please ask the Tengu team for a custom config. This is so that we can revoke access when the project ends. **Do not give external parties your vpn config!***
 
-#### Get Console/SSH access to the applications
+### Get Console/SSH access to the applications
 
 Once connected to the VPN, you can SSH to all servers. You can use [juju ssh](https://jujucharms.com/docs/master/charms-working-with-units#the-juju-ssh-command) on your tengubox or ssh directly to the machines. Make sure to first [add your ssh key](https://jujucharms.com/docs/2.0/commands#add-ssh-key) before ssh-ing directly to the machines.
 
-#### Get web access to the applications
+### Get web access to the applications
 
 When connected to the VPN, you can just surf to your applications. The VPN also enables the DNS server so hostnames like `bland-lamp.maas` and `juju-35dfg5e-23-lxd-1`.
 
+## ii. Use a machine with a public IP
 
-## ii. Expose HTTP webservices to the internet
+If you have a machine with a publicly accessible IP in your experiment (193.190 range), you can either deploy your applications directly to that machine, or (preferred) deploy your applications into containers and set up a reverse proxy on the machine itself. Use an HTTP reverseproxy for HTTP webservices or use a TCP/UDP forwarder to forward all traffic.
+
+### a. Expose HTTP webservices to the internet
 
 Do you want applications to be available on the internet without the VPN? Both the [HAProxy](https://jujucharms.com/haproxy) and the [Apache2](https://jujucharms.com/apache2) Charm support the "reverseproxy" relationship. Deploy the reverse proxy directly on a machine with a public ip and connect the reverse proxy to your application. For more information on this, see the README's of the [HAProxy](https://jujucharms.com/haproxy) and [Apache2](https://jujucharms.com/apache2) Charms.
 
 *Note: This will only work for Charmed webservices that have the `http` relationship*
 
-## iii. Expose TCP and UDP services to the internet
+### b. Expose TCP and UDP services to the internet
 
 The [network-agent Charm](https://jujucharms.com/u/tengu-team/network-agent) can pose as a layer 2 (tcp and udp) forwarder. For more information, look at the network-agent README.
