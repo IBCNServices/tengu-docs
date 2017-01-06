@@ -6,6 +6,7 @@ title: "Tengu Docs"
 This is the documentation website for the Tengu project.
 
  - [How to I access the applications in my model?](use/expose-applications.html)
+ - [How can I make my applications publicly accessible?](use/expose-applications.html#ii-use-a-machine-with-a-public-ip)
  - [How do I use the Tengubox?](use/tengubox.html)
 
 
