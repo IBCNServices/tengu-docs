@@ -14,6 +14,6 @@ Some quick links:
 
  - The new Tengu Charms are owned by [tengu-team in the Charm Store](https://jujucharms.com/u/tengu-team).
  - The old Tengu Charms are owned by [tengu-bot in the Charm Store](https://jujucharms.com/u/tengu-bot).
- - [Tengu on github](https://github.com/IBCNServices/tengu-charms).
+ - [Tengu on Github](https://github.com/IBCNServices/tengu-charms).
  - The [tengu.io website](http://tengu.io).
  
