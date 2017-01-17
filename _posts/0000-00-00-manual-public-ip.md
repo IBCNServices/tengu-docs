@@ -2,7 +2,7 @@
 layout: page
 title: "Add a public IP to a server"
 category: use
-order: 1
+order: 200
 date: 2016-07-28 11:54:00
 ---
 
