@@ -26,6 +26,8 @@ When connected to the VPN, you can just surf to your applications. The VPN also 
 
 If you have a machine with a publicly accessible IP in your experiment (193.190 range), you can either deploy your applications directly to that machine, or (preferred) deploy your applications into containers and set up a reverse proxy on the machine itself. Use an HTTP reverseproxy for HTTP webservices or use a TCP/UDP forwarder to forward all traffic.
 
+If you don't have a machine with a public IP, you can [manually add it yourself](manual-public-ip).
+
 ### a. Expose HTTP webservices to the internet
 
 Do you want applications to be available on the internet without the VPN? Both the [HAProxy](https://jujucharms.com/haproxy) and the [Apache2](https://jujucharms.com/apache2) Charm support the "reverseproxy" relationship. Deploy the reverse proxy directly on a machine with a public ip and connect the reverse proxy to your application. For more information on this, see the README's of the [HAProxy](https://jujucharms.com/haproxy) and [Apache2](https://jujucharms.com/apache2) Charms.
