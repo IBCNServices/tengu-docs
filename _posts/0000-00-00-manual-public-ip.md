@@ -11,11 +11,23 @@ date: 2016-07-28 11:54:00
 
 #### 1) Request Public IP using jFed
 
-Create a jFed experiment with the "Address Pool" resource. Give it an arbitrary name and run the experiment. After startin the experiment, you can view the public ip by right-clicking the pool and choosing "properties". Use this IP for the next steps.
+Create a jFed experiment with the "Address Pool" resource on the Virtual Wall 1. Give it an arbitrary name of max 8 characters and run the experiment.
+
+*Protip: Make sure to set the expiration time long enough or you'll get conflicts from other people using the IP. The maximum expiration time is 90 days. If your machines need to be available longer, you'll need to manually renew it every few months. Put it in your calendar so you don't forget to renew it.*
+
+After starting the experiment, you can view the public ip by right-clicking the pool and choosing "properties". Use this IP for the next steps.
+
+*Protip: If you don't see the IP, close the experiment and open it again using the "recover" function.*
 
 #### 2) Give public IP to MAAS server
 
-First, find out the name of the interface that is connected to the MAAS network. Ssh to the server and run `ifconfig`.
+First, find out the name of the interface that is connected to the MAAS network. Ssh to the server, and switch to the root user.
+
+```
+sudo su -
+```
+
+Run `ifconfig`.
 
 ```
 ubuntu@light-lab:~$ ifconfig
@@ -49,5 +61,5 @@ iface br-enp1s0f0.28 inet static
     up ip route del default || true
     up ip route add default via 193.190.127.129 || true
     address <insert public ip>/26
-    bridge_ports enp1s0f0.28
+    vlan-raw-device br-enp1s0f0
 ```
