@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Docker in LXD"
-category: use
+category: advanced
 order: 1
 date: 2016-07-28 11:54:00
 ---
