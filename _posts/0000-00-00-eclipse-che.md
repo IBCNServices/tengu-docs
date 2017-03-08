@@ -49,6 +49,8 @@ The circle will turn grey and the unit of Eclipse Che will show the status "Read
 
 # Step 2. Create a Juju workspace in Eclipse Che
 
+Go to your Eclipse Che instance.
+
 **Choose the Juju workspace.**
 ![Choose your stack view ](https://raw.githubusercontent.com/IBCNServices/layer-eclipse-che/master/files/create-workspace.gif)
 
@@ -98,7 +100,7 @@ Added 'mymodel1' model on aws/ap-northeast-1 with credential 'amazon' for user '
 
 # Look at the Juju documentation for more info.
 
-The REAMDE's of the Charms also contain a bunch of information of how to use them.
+The README's of the Charms also contain a bunch of information of how to use them.
 
 - [How to ssh into units and copy files.](https://jujucharms.com/docs/2.1/charms-working-with-units)
 - [Deploying Charms and managing applications.](https://jujucharms.com/docs/2.1/charms)
