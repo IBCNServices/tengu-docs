@@ -66,7 +66,9 @@ Added 'mymodel1' model on aws/ap-northeast-1 with credential 'amazon' for user '
 [jujucharms.com:merlijn-sebrechts@external/mymodel1] ubuntu@3feb084a1eab:/projects$
 ```
 
-Look at the Juju documentation for more info. The REAMDE's of the Charms also contain a bunch of information of how to use them.
+# Look at the Juju documentation for more info.
+
+The REAMDE's of the Charms also contain a bunch of information of how to use them.
 
 - [How to ssh into units and copy files.](https://jujucharms.com/docs/2.1/charms-working-with-units)
 - [Deploying Charms and managing applications.](https://jujucharms.com/docs/2.1/charms)
