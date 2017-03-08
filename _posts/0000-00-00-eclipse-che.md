@@ -17,14 +17,14 @@ date: 2016-07-28 11:54:00
 ![console view  ](https://raw.githubusercontent.com/IBCNServices/layer-eclipse-che/master/files/browser-commandline.gif)
 
 
-# Create a Juju workspace
+# Step 1. Create a Juju workspace
 
 **Choose the Juju workspace.**
 ![Choose your stack view ](https://raw.githubusercontent.com/IBCNServices/layer-eclipse-che/master/files/create-workspace.gif)
 
 Now wait until it is complete.
 
-# Connect a Juju workspace to the `jujucharms.com` controller.
+# Step 2. Connect a Juju workspace to the `jujucharms.com` controller.
 
 In the workspace, run the following commands in the terminal.
 
