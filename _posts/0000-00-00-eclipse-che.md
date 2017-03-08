@@ -1,10 +1,40 @@
 ---
 layout: page
-title: "Getting Started with Eclipse Che"
+title: "Getting Started with Juju as a Service"
 category: use
 order: 1
 date: 2016-07-28 11:54:00
 ---
+
+# Table of Contents
+
+1. [Create your first model](#step-1-create-your-first-model)
+1. [Create a Juju workspace in Eclipse Che](#step-2-create-a-juju-workspace-in-eclipse-che)
+2. [Connect your Juju workspace to your model](#step-3-connect-a-juju-workspace-to-the-jujucharmscom-controller)
+3. [More Documentation](#look-at-the-juju-documentation-for-more-info)
+
+# Step 1. Create your first model
+
+Before we begin, make sure that you have credentials for either AWS, GCE or Azure. Juju will request virtual machine from that cloud to run your applications in.
+
+1. Go to [https://jujucharms.com]() and click on "Login".
+2. Login with your Ubuntu One account (launchpad account), or create one if you don't have it.
+3. After login, go back to [https://jujucharms.com]() and you should be automatically redirected to your profile page. Click "Start Building".
+
+This is the Juju GUI. You use it to create models and manage and monitor applications.
+
+The Juju commandline tools, however, are a lot more powerful than the GUI so the first application we're going to use Eclipse Che, a cloud IDE that gives us access to the Juju CLI tools.
+
+<!--5. Search for "Eclipse Che" in the Juju GUI and add it to the model.
+6. Click "Deploy Changes" to deploy this model and give the model a name.
+7. Choose which cloud you want to deploy to and add your credentials for that cloud. You can also add an ssh key that will be put on all the machines Juju creates.
+8. Click "deploy".
+
+Juju is now requesting a virtual machine from your cloud and will install eclipse che onto that cloud. By default, Eclipse Che will not be publicly accessible. You can make it publicly accessible by "exposing" it. Click on eclipse che and expose it using the menu on the left. Now we wait until eclipse che finishes installation. You can see the status of installation by clicking
+
+The circle will turn grey and the unit of Eclipse Che will show the status "Ready (eclipse/che)".-->
+
+# What is Eclipse Che?
 
 [Eclipse Che](http://www.eclipse.org/che/) is a cloud IDE. Your browser becomes your IDE, your workspaces are docker containers. All the development tools, dependencies and libraries are already installed in the workspace. The only thing you have to do is surf to the url and start coding. To top it all off, you get an in-browser terminal right into your workspace.
 
@@ -17,14 +47,14 @@ date: 2016-07-28 11:54:00
 ![console view  ](https://raw.githubusercontent.com/IBCNServices/layer-eclipse-che/master/files/browser-commandline.gif)
 
 
-# Step 1. Create a Juju workspace
+# Step 2. Create a Juju workspace in Eclipse Che
 
 **Choose the Juju workspace.**
 ![Choose your stack view ](https://raw.githubusercontent.com/IBCNServices/layer-eclipse-che/master/files/create-workspace.gif)
 
 Now wait until it is complete.
 
-# Step 2. Connect a Juju workspace to the `jujucharms.com` controller.
+# Step 3. Connect a Juju workspace to the `jujucharms.com` controller.
 
 In the workspace, run the following commands in the terminal.
 
