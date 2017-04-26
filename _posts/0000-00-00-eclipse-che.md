@@ -25,12 +25,12 @@ This is the Juju GUI. You use it to create models and manage and monitor applica
 
 The Juju commandline tools, however, are a lot more powerful than the GUI so the first application we're going to use Eclipse Che, a cloud IDE that gives us access to the Juju CLI tools.
 
-<!--5. Search for "Eclipse Che" in the Juju GUI and add it to the model.
+5. Search for "Eclipse Che" in the Juju GUI and add it to the model.
 6. Click "Deploy Changes" to deploy this model and give the model a name.
 7. Choose which cloud you want to deploy to and add your credentials for that cloud. You can also add an ssh key that will be put on all the machines Juju creates.
 8. Click "deploy".
 
-Juju is now requesting a virtual machine from your cloud and will install eclipse che onto that cloud. By default, Eclipse Che will not be publicly accessible. You can make it publicly accessible by "exposing" it. Click on eclipse che and expose it using the menu on the left. Now we wait until eclipse che finishes installation. You can see the status of installation by clicking
+Juju is now requesting a virtual machine from your cloud and will install eclipse che onto that cloud. By default, Eclipse Che will not be publicly accessible. You can make it publicly accessible by "exposing" it. Click on eclipse che and expose it using the menu on the left. Now we wait until eclipse che finishes installation.
 
 The circle will turn grey and the unit of Eclipse Che will show the status "Ready (eclipse/che)".-->
 
