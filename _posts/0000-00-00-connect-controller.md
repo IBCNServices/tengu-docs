@@ -8,11 +8,11 @@ date: 2017-12-03 11:54:00
 
 ## Connect to the controller
 
-Run the command you received and enter a password of your choosing.
+Connect to the VMWare VPN, run the command you received and enter a password of your choosing.
 
 ```bash
 # Run the command you received
-juju register ME0TBnNib3JueTAUExIxMC4xMC4xMzkuNzQ6MTcwNzAEIJleL1YG9u5zDbUetT2YXJYGEfrTSLtMuwmngJReTPawEwt2bXdhcmUtbWFpbgAA
+juju register UetT2YXJ...WFpbgAA
 ```
 
 This gives you access to the controller and all the models that you are granted.
