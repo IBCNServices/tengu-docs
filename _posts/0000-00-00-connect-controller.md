@@ -1,12 +1,12 @@
 ---
 layout: page
-title: "Acces your Applications"
+title: "Connect to the VMWare controller"
 category: vmware
 order: 1
-date: 2016-07-28 11:54:00
+date: 2017-12-03 11:54:00
 ---
 
-# Connect to the controller
+## Connect to the controller
 
 Run the command you received and enter a password of your choosing.
 
@@ -17,7 +17,7 @@ juju register ME0TBnNib3JueTAUExIxMC4xMC4xMzkuNzQ6MTcwNzAEIJleL1YG9u5zDbUetT2YXJ
 
 This gives you access to the controller and all the models that you are granted.
 
-# Instructions for cluster admins
+## Instructions for cluster admins
 
 These instructions are for cluster administrators only. Cluster administrators can also create new models and manage existing virtual machines. Start with the instructions for normal users and then continue with these instructions.
 
