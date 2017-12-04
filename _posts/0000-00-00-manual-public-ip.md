@@ -6,10 +6,7 @@ order: 200
 date: 2016-07-28 11:54:00
 ---
 
-
-### Extra: Add public IP to an existing machine
-
-#### 1) Request Public IP using jFed
+## 1) Request Public IP using jFed
 
 Create a jFed experiment with the "Address Pool" resource on the Virtual Wall 1. Give it an arbitrary name of max 8 characters and run the experiment.
 
@@ -19,17 +16,57 @@ After starting the experiment, you can view the public ip by right-clicking the 
 
 *Protip: If you don't see the IP, close the experiment and open it again using the "recover" function.*
 
-#### 2) Give public IP to MAAS server
+## 2) Assign the public IP to your machine
+
+The instructions to assign the public IP to your machine differ depending on whether the machine is part of the VMWare cluster or the MAAS cluster.
+
+### 2a) Give public IP to a VMWare Virtual Machine**
+
+*Use these instructions to assign the public IP to a VMWare virtual machine. For MAAS, see below.*
+
+Ensure that `ens224` is the name of the unconfigured network interface
+
+```bash
+ifconfig ens224
+```
+
+Edit the interfaces file `sudo nano /etc/network/interfaces` and add the following config at **the bottom** of that file.
+
+```interfaces
+auto ens224
+  iface ens224 inet static
+  address <the-public-ip-from-jfed>
+  netmask 255.255.255.192
+  pre-up route del default || true
+  gateway 193.190.127.129
+```
+
+And bring up the interface with `sudo ifup ens224`.
+
+```bash
+# Bring up the public network interface
+sudo ifup ens224
+# Check if the correct IP is being used
+curl ipinfo.io/ip
+```
+
+This configuration will persist over reboots. It will take a while before Juju
+shows the correct public-address. You can speed up this process by rebooting
+the VM.
+
+### 2b) Give public IP to MAAS server
+
+*Use these instructions to assign the public IP to a MAAS physical server. For VMWare, see above.*
 
 First, find out the name of the interface that is connected to the MAAS network. Ssh to the server, and switch to the root user.
 
-```
+```bash
 sudo su -
 ```
 
 Run `ifconfig`.
 
-```
+```txt
 ubuntu@light-lab:~$ ifconfig
 br-enp1s0f0 Link encap:Ethernet  HWaddr ...
           inet addr:172.28.0.62  Bcast:172.28.255.255  Mask:255.255.0.0
@@ -43,7 +80,7 @@ enp1s0f0  Link encap:Ethernet  HWaddr ...
 
 The maas network address is `172.28.0.0 255.255.0.0` so `br-enp1s0f0` is connected to the MAAS network. This is the interface we're looking for.
 
-```
+```bash
 PUBIP=<insert public ip>
 BRIDGEIF=br-enp1s0f0
 
@@ -55,7 +92,7 @@ route del default && route add default gw 193.190.127.129
 
 And add the following lines to `/etc/network/interfaces`.
 
-```
+```interfaces
 auto br-enp1s0f0.28
 iface br-enp1s0f0.28 inet static
     up ip route del default || true
