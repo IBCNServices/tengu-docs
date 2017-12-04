@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Connect to the VMWare controller"
-category: vmware
+category: advanced
 order: 1
 date: 2017-12-03 11:54:00
 ---
