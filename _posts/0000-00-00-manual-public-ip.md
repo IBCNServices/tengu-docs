@@ -24,10 +24,17 @@ The instructions to assign the public IP to your machine differ depending on whe
 
 *Use these instructions to assign the public IP to a VMWare virtual machine. For MAAS, see below.*
 
-Check if the interface `ens224` exists on the VM. If it does not exist, contact Merlijn, Sander or Gregory to move your VM into the DMZ and the interface will be added to the VM.
+Check if the interface `ens224` exists on the VM. If it does not exist, contact Sander (`sborny` on the IDLab Mattermost) to connect your VM to the DMZ and the interface will be added to the VM.
+
+*Caution: adding a VM to the DMZ will require a full system reboot.*
 
 ```bash
 ifconfig -a | grep -q ens224 && echo "interface ens224 exists!" || echo "interface ens224 NOT found"
+```
+
+The next steps depend on the Ubuntu version of your VM. Check via:
+```bash
+lsb_release -a
 ```
 
 **Ubuntu version >= 18.04**
@@ -44,7 +51,7 @@ network:
       gateway4: 193.190.127.129
 ```
 
-Bring up the interface with `sudo netplan try`. If all goes well you should receive the following output. Press <kbd>Enter</kbd> to accept the new configuration.
+Bring up the interface with `sudo netplan try`. If all goes well you should receive the following output. Press <kbd>Enter</kbd> to accept the new configuration. If you lose SSH connection to the machine after applying the config and you can not reconnect immediatly, wait 120 seconds for the changes to revert.
 
 ```bash
 ubuntu@juju-37156e-28:/etc/netplan$ sudo netplan try
