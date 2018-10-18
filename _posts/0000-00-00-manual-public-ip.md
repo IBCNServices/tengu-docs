@@ -24,6 +24,58 @@ The instructions to assign the public IP to your machine differ depending on whe
 
 *Use these instructions to assign the public IP to a VMWare virtual machine. For MAAS, see below.*
 
+Check if the interface `ens224` exists on the VM. If it does not exist, contact Sander (`sborny` on the IDLab Mattermost) to connect your VM to the DMZ and the interface will be added to the VM.
+
+*Caution: adding a VM to the DMZ will require a full system reboot.*
+
+```bash
+ifconfig -a | grep -q ens224 && echo "interface ens224 exists!" || echo "interface ens224 NOT found"
+```
+
+The next steps depend on the Ubuntu version of your VM. Check via:
+```bash
+lsb_release -a
+```
+
+**Ubuntu version >= 18.04**
+
+Create the file `/etc/netplan/60-tengu.yaml` and copy the following config, fill in the public ip from jFed.
+
+```yaml
+network:
+  version: 2
+  ethernets:
+    ens224:
+      dhcp4: no
+      addresses: [<PUBLIC_JFED_IP>/26]
+      gateway4: 193.190.127.129
+```
+
+Bring up the interface with `sudo netplan try`. If all goes well you should receive the following output. Press <kbd>Enter</kbd> to accept the new configuration. If you lose SSH connection to the machine after applying the config and you can not reconnect immediatly, wait 120 seconds for the changes to revert.
+
+```bash
+ubuntu@juju-37156e-28:/etc/netplan$ sudo netplan try
+Warning: Stopping systemd-networkd.service, but it can still be activated by:
+  systemd-networkd.socket
+Do you want to keep these settings?
+
+
+Press ENTER before the timeout to accept the new configuration
+
+
+Changes will revert in 119 seconds
+Configuration accepted.
+
+# Check if the correct IP is being used
+curl ipinfo.io/ip
+```
+
+This configuration will persist over reboots. It will take a while before Juju
+shows the correct public-address. You can speed up this process by rebooting
+the VM.
+
+**Ubuntu version < 18.04**
+
 Ensure that `ens224` is the name of the unconfigured network interface
 
 ```bash
